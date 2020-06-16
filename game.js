@@ -17,7 +17,7 @@ function shuffleCards() {
 
 function initDragAndDrop() {
     let draggables = document.querySelectorAll('.card');
-    let dropZones = document.querySelectorAll('.card-slot');
+    let dropZones = document.querySelectorAll('.card-slot, .mixed-cards');
     initDraggables(draggables);
     initDroppables(dropZones);
 }
@@ -42,18 +42,18 @@ function initDraggable(draggable) {
 }
 
 function initDroppable(dropZone) {
-    dropZone.addEventListener('dragenter', dropZoneEnterHandler);
+    //dropZone.addEventListener('dragenter', dropZoneEnterHandler);
     dropZone.addEventListener('dragover', dropZoneOverHandler);
-    dropZone.addEventListener('dragleave', dropZoneLeaveHandler);
+    //dropZone.addEventListener('dragleave', dropZoneLeaveHandler);
     dropZone.addEventListener('drop', dropZoneDropHandler);
 }
 
-function dragStartHandler() {
-    this.classList.add('dragged');
+function dragStartHandler(event) {
+    event.currentTarget.classList.add('dragged');
 }
 
-function dragEndHandler() {
-    this.classList.remove('dragged');
+function dragEndHandler(event) {
+    event.currentTarget.classList.remove('dragged');
 }
 
 function dropZoneEnterHandler(event) {
