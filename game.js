@@ -11,9 +11,10 @@ function shuffleCards() {
     let mixedCardsContainer = document.querySelector(".mixed-cards");
     for (let i = mixedCardsContainer.children.length; i >= 0; i--) {
         mixedCardsContainer.appendChild(mixedCardsContainer.children[Math.random() * i | 0]);
-    }
+    };
     for (let i = 0; i < 9; i++) {
-        mixedCardsContainer.children[i].style.transform = 'rotate(20deg)'
+        let random_direction = Math.floor( Math.random() * 5) * 90;
+        mixedCardsContainer.children[i].style.transform = 'rotate('+random_direction+'deg)';
     }
 }
 
