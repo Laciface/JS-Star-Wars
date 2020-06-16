@@ -1,5 +1,6 @@
 initGame();
 shuffleCards();
+//toggleMusic(); row 83
 
 function initGame() {
 
@@ -72,3 +73,16 @@ function dropZoneDropHandler(event) {
     let draggedElement = document.querySelector('.dragged');
     event.currentTarget.appendChild(draggedElement);
 }
+
+
+/*function toggleMusic() {
+    const musicButton = document.getElementById('music');
+    musicButton.addEventListener("click", 'play');
+}*/ //html onclick => function
+
+const backgroundMusic = new Audio( "/static/starwars.mp3" );
+
+function play(event) {
+    return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();
+};
+
