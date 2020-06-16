@@ -70,5 +70,7 @@ function dropZoneLeaveHandler(event) {
 
 function dropZoneDropHandler(event) {
     let draggedElement = document.querySelector('.dragged');
-    event.currentTarget.appendChild(draggedElement);
+    if (event.currentTarget.children.length === 0 || event.currentTarget.classList.contains('mixed-cards')) {
+        event.currentTarget.appendChild(draggedElement);
+    }
 }
