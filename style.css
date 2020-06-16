@@ -3,8 +3,6 @@ body {
   color:white;
 }
 
-
-
 #grid div {
   position:relative;
   height: 200px;
@@ -32,18 +30,11 @@ img {
 
 }
 
-#drag4,
-#drag5,
-#drag6,
-#drag7,
-#drag8,
-#drag9,
-#drag10,
-#drag11,
-#drag12 {
+.card {
   height: 200px;
   width: 200px;
   border: 1px solid black;
   display: inline-block;
 }
+
 
