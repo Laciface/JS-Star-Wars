@@ -4,6 +4,7 @@ function initGame() {
 
     // Your game can start here, but define separate functions, don't write everything in here :)
     timeLeft();
+    clickResetGame();
 }
 
 function shuffleCards() {
@@ -129,3 +130,4 @@ function fullPicture() {
     picture.style.display = "none";
   }
 }
+
