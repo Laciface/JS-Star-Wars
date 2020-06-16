@@ -1,11 +1,9 @@
 initGame();
-shuffleCards();
 
 function initGame() {
 
     // Your game can start here, but define separate functions, don't write everything in here :)
-    shuffleCards();
-    initDragAndDrop();
+    timeLeft();
 }
 
 function shuffleCards() {
@@ -118,7 +116,16 @@ function timeLeft(){
     }
     startBtn.addEventListener('click', countDown)
     startBtn.addEventListener('click', shuffleCards)
+    startBtn.addEventListener('click', initDragAndDrop)
 
 
 }
 
+function fullPicture() {
+  let picture = document.getElementById("picture");
+  if (picture.style.display === "none") {
+    picture.style.display = "block";
+  } else {
+    picture.style.display = "none";
+  }
+}
