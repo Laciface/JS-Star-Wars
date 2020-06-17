@@ -2,20 +2,18 @@ initGame();
 
 
 function initGame() {
-
     // Your game can start here, but define separate functions, don't write everything in here :)
     timeLeft();
-
 }
 
 function shuffleCards() {
     let mixedCardsContainer = document.querySelector(".mixed-cards");
     for (let i = mixedCardsContainer.children.length; i >= 0; i--) {
         mixedCardsContainer.appendChild(mixedCardsContainer.children[Math.random() * i | 0]);
-    };
+    }
     for (let i = 0; i < 9; i++) {
-        let random_direction = Math.floor( Math.random() * 5) * 90;
-        mixedCardsContainer.children[i].style.transform = 'rotate('+random_direction+'deg)';
+        let random_direction = Math.floor(Math.random() * 5) * 90;
+        mixedCardsContainer.children[i].style.transform = 'rotate(' + random_direction + 'deg)';
     }
 }
 
@@ -81,7 +79,6 @@ function dropZoneDropHandler(event) {
     }
 }
 
-
 function clickRotate(event) {
     event.preventDefault();
     let rotateData = parseInt(event.currentTarget.getAttribute('data-rotate'));
@@ -100,39 +97,42 @@ function clickRotate(event) {
     }
 }
 
-
-function timeLeft(){
-    const timeLeftDisplay = document.querySelector('#time-left')
-    const startBtn = document.querySelector('#start-button')
-    let timeLeft = 10
+function timeLeft() {
+    const timeLeftDisplay = document.querySelector('#time-left');
+    const startBtn = document.querySelector('#start-button');
+    const resetBtn = document.getElementById('reset-button');
+    const imageBtn = document.getElementById('picture-button');
+    let timeLeft = 10;
 
     function countDown() {
         setInterval(function () {
-            if(timeLeft <= 0){
+            if (timeLeft <= 0) {
                 clearInterval(timeLeft = 0)
             }
             timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
+            timeLeft -= 1
         }, 1000)
         startBtn.style.visibility = 'hidden'
     }
+
     startBtn.addEventListener('click', countDown)
     startBtn.addEventListener('click', shuffleCards)
     startBtn.addEventListener('click', initDragAndDrop)
-
+    resetBtn.addEventListener('click', function () {
+        window.location.reload();
+    })
+    imageBtn.addEventListener('click', fullPicture)
 
 }
 
 function fullPicture() {
-  let picture = document.getElementById("picture");
-  if (picture.style.display === "none") {
-    picture.style.display = "block";
-  } else {
-    picture.style.display = "none";
-  }
+    let picture = document.getElementById("picture");
+    if (picture.style.display === "none") {
+        picture.style.display = "block";
+    } else {
+        picture.style.display = "none";
+    }
 }
-
-
 
 
 /*function toggleMusic() {
@@ -140,9 +140,9 @@ function fullPicture() {
     musicButton.addEventListener("click", 'play');
 }*/ //html onclick => function
 
-const backgroundMusic = new Audio( "/static/starwars.mp3" );
+const backgroundMusic = new Audio("/static/starwars.mp3");
 
 function play(event) {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();
-};
+}
 
