@@ -76,7 +76,6 @@ function dropZoneDropHandler(event) {
     let draggedElement = document.querySelector('.dragged');
     if (event.currentTarget.children.length === 0 || event.currentTarget.classList.contains('mixed-cards')) {
         event.currentTarget.appendChild(draggedElement);
-        checkWin(event);
     }
 }
 
@@ -109,6 +108,8 @@ function timeLeft() {
         setInterval(function () {
             if (timeLeft <= 0) {
                 clearInterval(timeLeft = 0)
+            } else if (checkWin()) {
+                clearInterval(timeLeft = 0);
             }
             timeLeft -= 1
             timeLeftDisplay.innerHTML = timeLeft
@@ -150,14 +151,13 @@ function play(event) {
 
 function checkLose(timeLeft) {
     if (timeLeft === 0) {
-        alert('Vesztettél gecó!')
+        alert('LOSE!')
     }
 }
 
-function checkWin(event) {
+function checkWin() {
     let count = 0
     let cardSlots = document.querySelectorAll('.card-slot');
-    let cards = document.querySelectorAll('.card');
     for (cardSlot of cardSlots) {
         if (cardSlot.children.length === 1) {
             if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos')) {
@@ -166,6 +166,7 @@ function checkWin(event) {
         }
     }
     if (count === 9) {
-        alert('nyertel')
+        alert('WIN!');
+        return true
     }
 }
