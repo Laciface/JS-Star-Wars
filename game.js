@@ -1,5 +1,7 @@
 initGame();
-
+switchVisibility();
+switchToRules();
+switchToCredits();
 
 function initGame() {
 
