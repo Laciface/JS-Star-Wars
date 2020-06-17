@@ -4,20 +4,19 @@ switchToRules();
 switchToCredits();
 
 function initGame() {
-
     // Your game can start here, but define separate functions, don't write everything in here :)
     timeLeft();
-
 }
 
 function shuffleCards() {
     let mixedCardsContainer = document.querySelector(".mixed-cards");
     for (let i = mixedCardsContainer.children.length; i >= 0; i--) {
         mixedCardsContainer.appendChild(mixedCardsContainer.children[Math.random() * i | 0]);
-    };
+    }
     for (let i = 0; i < 9; i++) {
-        let random_direction = Math.floor( Math.random() * 5) * 90;
-        mixedCardsContainer.children[i].style.transform = 'rotate('+random_direction+'deg)';
+        let random_direction = Math.floor(Math.random() * 4) * 90;
+        mixedCardsContainer.children[i].style.transform = 'rotate(' + random_direction + 'deg)';
+        mixedCardsContainer.children[i].setAttribute('data-rotate', random_direction.toString());
     }
 }
 
@@ -83,7 +82,6 @@ function dropZoneDropHandler(event) {
     }
 }
 
-
 function clickRotate(event) {
     event.preventDefault();
     let rotateData = parseInt(event.currentTarget.getAttribute('data-rotate'));
@@ -102,36 +100,45 @@ function clickRotate(event) {
     }
 }
 
-
-function timeLeft(){
-    const timeLeftDisplay = document.querySelector('#time-left')
-    const startBtn = document.querySelector('#start-button')
-    let timeLeft = 10
+function timeLeft() {
+    const timeLeftDisplay = document.querySelector('#time-left');
+    const startBtn = document.querySelector('#start-button');
+    const resetBtn = document.getElementById('reset-button');
+    const imageBtn = document.getElementById('picture-button');
+    const musicBtn = document.getElementById('music');
+    let timeLeft = 10000;
 
     function countDown() {
         setInterval(function () {
-            if(timeLeft <= 0){
+            if (timeLeft <= 0) {
                 clearInterval(timeLeft = 0)
+            } else if (checkWin()) {
+                clearInterval(timeLeft = 0);
             }
+            timeLeft -= 1
             timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
+            checkLose(timeLeft);
         }, 1000)
         startBtn.style.visibility = 'hidden'
     }
+
     startBtn.addEventListener('click', countDown)
     startBtn.addEventListener('click', shuffleCards)
     startBtn.addEventListener('click', initDragAndDrop)
-
-
+    resetBtn.addEventListener('click', function () {
+        window.location.reload();
+    })
+    imageBtn.addEventListener('click', fullPicture)
+    musicBtn.addEventListener('click', play)
 }
 
 function fullPicture() {
-  let picture = document.getElementById("picture");
-  if (picture.style.display === "none") {
-    picture.style.display = "block";
-  } else {
-    picture.style.display = "none";
-  }
+    let picture = document.getElementById("picture");
+    if (picture.style.display === "none") {
+        picture.style.display = "block";
+    } else {
+        picture.style.display = "none";
+    }
 }
 
 
@@ -190,3 +197,26 @@ function showAndHideCredits() {
     credits.style.visibility = 'visible';
 }
 
+function checkLose(timeLeft) {
+    if (timeLeft === 0) {
+        alert('LOSE!')
+    }
+}
+
+function checkWin() {
+    let count = 0
+    let cardSlots = document.querySelectorAll('.card-slot');
+    for (cardSlot of cardSlots) {
+            console.log(cardSlot.firstElementChild);
+        if (cardSlot.children.length === 1) {
+            if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos') &&
+                cardSlot.firstElementChild.getAttribute('data-rotate') === '0') {
+                count++
+            }
+        }
+    }
+    if (count === 9) {
+        alert('WIN!');
+        return true
+    }
+}
