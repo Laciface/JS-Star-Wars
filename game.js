@@ -12,8 +12,9 @@ function shuffleCards() {
         mixedCardsContainer.appendChild(mixedCardsContainer.children[Math.random() * i | 0]);
     }
     for (let i = 0; i < 9; i++) {
-        let random_direction = Math.floor(Math.random() * 5) * 90;
+        let random_direction = Math.floor(Math.random() * 4) * 90;
         mixedCardsContainer.children[i].style.transform = 'rotate(' + random_direction + 'deg)';
+        mixedCardsContainer.children[i].setAttribute('data-rotate', random_direction.toString());
     }
 }
 
@@ -102,6 +103,7 @@ function timeLeft() {
     const startBtn = document.querySelector('#start-button');
     const resetBtn = document.getElementById('reset-button');
     const imageBtn = document.getElementById('picture-button');
+    const musicBtn = document.getElementById('music');
     let timeLeft = 10000;
 
     function countDown() {
@@ -125,7 +127,7 @@ function timeLeft() {
         window.location.reload();
     })
     imageBtn.addEventListener('click', fullPicture)
-
+    musicBtn.addEventListener('click', play)
 }
 
 function fullPicture() {
@@ -143,9 +145,9 @@ function fullPicture() {
     musicButton.addEventListener("click", 'play');
 }*/ //html onclick => function
 
-const backgroundMusic = new Audio("/static/starwars.mp3");
+const backgroundMusic = new Audio("/static/grofo.mp3");
 
-function play(event) {
+function play() {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();
 }
 
@@ -159,8 +161,10 @@ function checkWin() {
     let count = 0
     let cardSlots = document.querySelectorAll('.card-slot');
     for (cardSlot of cardSlots) {
+            console.log(cardSlot.firstElementChild);
         if (cardSlot.children.length === 1) {
-            if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos')) {
+            if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos') &&
+                cardSlot.firstElementChild.getAttribute('data-rotate') === '0') {
                 count++
             }
         }
