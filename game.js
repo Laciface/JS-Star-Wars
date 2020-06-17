@@ -155,9 +155,17 @@ function checkLose(timeLeft) {
 }
 
 function checkWin(event) {
-    let draggedElement = document.querySelector('.dragged');
-    let dropZone = event.currentTarget;
-    if (draggedElement.getAttribute('data-pos') === dropZone.getAttribute('data-pos')) {
-        alert('kaki');
+    let count = 0
+    let cardSlots = document.querySelectorAll('.card-slot');
+    let cards = document.querySelectorAll('.card');
+    for (cardSlot of cardSlots) {
+        if (cardSlot.children.length === 1) {
+            if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos')) {
+                count++
+            }
+        }
+    }
+    if (count === 9) {
+        alert('nyertel')
     }
 }
