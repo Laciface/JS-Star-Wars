@@ -1,0 +1,93 @@
+@import "credits.css";
+
+body {
+  background:#6b6b69;
+  color:white;
+}
+
+#grid div {
+  position:relative;
+  height: 200px;
+  width: 200px;
+  border: 1px dashed gray;
+  display: inline-block;
+  margin: 0;
+}
+
+#grid {
+  width:614px;
+  height:614px;
+  background:darkgrey;
+  border:5px solid black;
+  margin:auto;
+}
+
+#images {
+  width: 100%
+}
+
+
+img {
+  height: 200px;
+  width: 200px;
+
+}
+
+.card {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#start-button{
+
+}
+.game {
+  visibility: hidden;
+}
+
+
+.menu {
+  visibility: visible;
+}
+
+.rules {
+  visibility: hidden;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+.rules #text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  color: red;
+}
+
+.credits {
+  visibility: hidden;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

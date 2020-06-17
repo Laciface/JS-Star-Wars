@@ -133,16 +133,58 @@ function fullPicture() {
 }
 
 
+const backgroundMusic = new Audio( "/static/grofo.mp3" );
 
-
-/*function toggleMusic() {
-    const musicButton = document.getElementById('music');
-    musicButton.addEventListener("click", 'play');
-}*/ //html onclick => function
-
-const backgroundMusic = new Audio( "/static/starwars.mp3" );
-
-function play(event) {
+function play() {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();
-};
+}
+
+const creditsMusic = new Audio( "/static/credits.mp3" );
+
+function creditsSong() {
+    return creditsMusic.paused ? creditsMusic.play() : creditsMusic.pause();
+}
+
+function switchVisibility() {
+    let startButton = document.querySelector('#start-button')
+    startButton.addEventListener('click', showAndHideGame);
+}
+
+function showAndHideGame() {
+    let game = document.querySelectorAll('.game');
+    let menu = document.querySelector('.menu');
+    initShowAndHide(game);
+    menu.style.visibility = 'hidden';
+}
+
+function initShowAndHide(game) {
+    for (let element of game) {
+        element.style.visibility = 'visible';
+    }
+}
+
+
+function switchToRules() {
+    let rulesButton = document.querySelector('#rules-button');
+    rulesButton.addEventListener('click', showAndHideRules);
+}
+
+function showAndHideRules() {
+    let rules = document.querySelector('.rules');
+    let menu = document.querySelector('.menu');
+    menu.style.visibility = 'hidden';
+    rules.style.visibility = 'visible';
+}
+
+function switchToCredits() {
+    let creditsButton = document.querySelector('#credits-button');
+    creditsButton.addEventListener('click', showAndHideCredits);
+}
+
+function showAndHideCredits() {
+    let credits = document.querySelector('.credits')
+    let menu = document.querySelector('.menu');
+    menu.style.visibility = 'hidden';
+    credits.style.visibility = 'visible';
+}
 

@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Javascript Game</title>
     <meta charset="UTF-8">
     <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
     <script src="game.js" defer></script>
 
 
 </head>
 <body>
-<h3>Seconds left: <span id="time-left">10</span></h3>
-<button type="button" id="start-button" class="btn btn-outline-success">Start the Game</button>
-<button onClick="window.location.reload();">Reset Game</button>
-<div id="images" class="mixed-cards">
-  <div id="drag4" class="card"><img src="/images/1.png"/></div>
-  <div id="drag5" class="card"><img src="/images/2.png"/></div>
-  <div id="drag6" class="card"><img src="/images/3.png"/></div>
-  <div id="drag7" class="card"><img src="/images/4.png"/></div>
-  <div id="drag8" class="card"><img src="/images/5.png"/></div>
-  <div id="drag9" class="card"><img src="/images/6.png"/></div>
-  <div id="drag10" class="card"><img src="/images/7.png"/></div>
-  <div id="drag11" class="card"><img src="/images/8.png"/></div>
-  <div id="drag12" class="card"><img src="/images/9.png"/></div>
+<h3 class="game">Seconds left: <span id="time-left">10</span></h3>
+<div class="menu">
+    <button type="button" id="start-button" class="btn btn-outline-success">Start the Game</button>
+    <button type="button" id="credits-button" onclick="creditsSong()">Credits</button>
+    <button type="button" id="rules-button">Rules</button>
 </div>
+<div class="credits">
+    <div class="fade"></div>
+    <section class="star-wars">
+        <div class="crawl">
+            <div class="title">
+                <p>Codecool</p>
+                <h1>Web room</h1>
+            </div>
 
-<div id="grid" class="dropzone">
-  <div id="div1" class="card-slot"></div>
-  <div id="div2" class="card-slot"></div>
-  <div id="div3" class="card-slot"></div>
-  <div id="div4" class="card-slot"></div>
-  <div id="div5" class="card-slot"></div>
-  <div id="div6" class="card-slot"></div>
-  <div id="div7" class="card-slot"></div>
-  <div id="div8" class="card-slot"></div>
-  <div id="div9" class="card-slot"></div>
+            <p> When the Empire released the javascript order with the sith mentors, the rebels had to group up and gather
+                a viable team.</p>
+            <p> Master Wadkan had to fly far away in the galaxy to accomplish a secret mission, the rebels tried to
+                re-establish their forces.</p>
+            <p> Fortunately, Master Laci felt the disturbance in the force, so he joined the desperate rebels, giving
+                them new hope against the unknown technologies and the sith lords.</p>
+            <button class="backbutton" onClick="window.location.reload();">Back</button>
+
+        </div>
+    </section>
 </div>
-
-<button onclick="fullPicture()">Full Picture</button>
-
-<div id="picture">
-  <div id="full" class="card"><img src="https://media.discordapp.net/attachments/677502181120671744/722359768668438548/babyyoda.jpg?width=1173&height=660"/></div>
+<div class="rules">
+    <p id="text">Rakjad összefele more</p>
+    <button onClick="window.location.reload();" id="return-button">Back to menu</button>
 </div>
+<div class="game">
+    <button onClick="window.location.reload();">Reset Game</button>
+    <div id="images" class="mixed-cards">
+        <div id="drag4" class="card"><img src="/images/1.png"/></div>
+        <div id="drag5" class="card"><img src="/images/2.png"/></div>
+        <div id="drag6" class="card"><img src="/images/3.png"/></div>
+        <div id="drag7" class="card"><img src="/images/4.png"/></div>
+        <div id="drag8" class="card"><img src="/images/5.png"/></div>
+        <div id="drag9" class="card"><img src="/images/6.png"/></div>
+        <div id="drag10" class="card"><img src="/images/7.png"/></div>
+        <div id="drag11" class="card"><img src="/images/8.png"/></div>
+        <div id="drag12" class="card"><img src="/images/9.png"/></div>
+    </div>
 
-<div class="sound">
-    <input id='music' type="button" value="Toggle Music" onclick="play()">
+    <div id="grid" class="dropzone">
+        <div id="div1" class="card-slot"></div>
+        <div id="div2" class="card-slot"></div>
+        <div id="div3" class="card-slot"></div>
+        <div id="div4" class="card-slot"></div>
+        <div id="div5" class="card-slot"></div>
+        <div id="div6" class="card-slot"></div>
+        <div id="div7" class="card-slot"></div>
+        <div id="div8" class="card-slot"></div>
+        <div id="div9" class="card-slot"></div>
+    </div>
+
+    <button onclick="fullPicture()">Full Picture</button>
+
+    <div id="picture">
+        <div id="full" class="card"><img
+                src="https://media.discordapp.net/attachments/677502181120671744/722359768668438548/babyyoda.jpg?width=1173&height=660"/>
+        </div>
+    </div>
+
+    <div class="sound">
+        <input id='music' type="button" value="Toggle Music" onclick="play()">
+    </div>
 </div>
 
 
