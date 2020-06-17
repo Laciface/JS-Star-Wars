@@ -76,6 +76,7 @@ function dropZoneDropHandler(event) {
     let draggedElement = document.querySelector('.dragged');
     if (event.currentTarget.children.length === 0 || event.currentTarget.classList.contains('mixed-cards')) {
         event.currentTarget.appendChild(draggedElement);
+        checkWin(event);
     }
 }
 
@@ -102,15 +103,16 @@ function timeLeft() {
     const startBtn = document.querySelector('#start-button');
     const resetBtn = document.getElementById('reset-button');
     const imageBtn = document.getElementById('picture-button');
-    let timeLeft = 10;
+    let timeLeft = 10000;
 
     function countDown() {
         setInterval(function () {
             if (timeLeft <= 0) {
                 clearInterval(timeLeft = 0)
             }
-            timeLeftDisplay.innerHTML = timeLeft
             timeLeft -= 1
+            timeLeftDisplay.innerHTML = timeLeft
+            checkLose(timeLeft);
         }, 1000)
         startBtn.style.visibility = 'hidden'
     }
@@ -146,3 +148,16 @@ function play(event) {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();
 }
 
+function checkLose(timeLeft) {
+    if (timeLeft === 0) {
+        alert('Vesztettél gecó!')
+    }
+}
+
+function checkWin(event) {
+    let draggedElement = document.querySelector('.dragged');
+    let dropZone = event.currentTarget;
+    if (draggedElement.getAttribute('data-pos') === dropZone.getAttribute('data-pos')) {
+        alert('kaki');
+    }
+}
