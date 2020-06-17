@@ -7,10 +7,13 @@
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="game.js" defer></script>
+
+
 </head>
 <body>
-
-
+<h3>Seconds left: <span id="time-left">10</span></h3>
+<button type="button" id="start-button" class="btn btn-outline-success">Start the Game</button>
+<button onClick="window.location.reload();">Reset Game</button>
 <div id="images" class="mixed-cards">
   <div id="drag4" class="card"><img src="/images/1.png"/></div>
   <div id="drag5" class="card"><img src="/images/2.png"/></div>
@@ -33,6 +36,12 @@
   <div id="div7" class="card-slot"></div>
   <div id="div8" class="card-slot"></div>
   <div id="div9" class="card-slot"></div>
+</div>
+
+<button onclick="fullPicture()">Full Picture</button>
+
+<div id="picture">
+  <div id="full" class="card"><img src="https://media.discordapp.net/attachments/677502181120671744/722359768668438548/babyyoda.jpg?width=1173&height=660"/></div>
 </div>
 
 <div class="sound">

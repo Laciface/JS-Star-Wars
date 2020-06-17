@@ -1,18 +1,21 @@
 initGame();
-shuffleCards();
-//toggleMusic(); row 83
+
 
 function initGame() {
 
     // Your game can start here, but define separate functions, don't write everything in here :)
+    timeLeft();
 
-    initDragAndDrop();
 }
 
 function shuffleCards() {
     let mixedCardsContainer = document.querySelector(".mixed-cards");
     for (let i = mixedCardsContainer.children.length; i >= 0; i--) {
         mixedCardsContainer.appendChild(mixedCardsContainer.children[Math.random() * i | 0]);
+    };
+    for (let i = 0; i < 9; i++) {
+        let random_direction = Math.floor( Math.random() * 5) * 90;
+        mixedCardsContainer.children[i].style.transform = 'rotate('+random_direction+'deg)';
     }
 }
 
@@ -20,7 +23,7 @@ function initDragAndDrop() {
     let draggables = document.querySelectorAll('.card');
     let dropZones = document.querySelectorAll('.card-slot, .mixed-cards');
     initDraggables(draggables);
-    initDroppables(dropZones);
+    initDropZones(dropZones);
 }
 
 function initDraggables(draggables) {
@@ -29,9 +32,9 @@ function initDraggables(draggables) {
     }
 }
 
-function initDroppables(dropZones) {
+function initDropZones(dropZones) {
     for (let dropZone of dropZones) {
-        initDroppable(dropZone);
+        initDropZone(dropZone);
     }
 }
 
@@ -40,9 +43,11 @@ function initDraggable(draggable) {
     //draggable.addEventListener('drag', dragHandler);
     draggable.addEventListener('dragend', dragEndHandler);
     draggable.setAttribute('draggable', 'true');
+    draggable.addEventListener('contextmenu', clickRotate);
+    //draggable.setAttribute('data-rotate', 0);
 }
 
-function initDroppable(dropZone) {
+function initDropZone(dropZone) {
     //dropZone.addEventListener('dragenter', dropZoneEnterHandler);
     dropZone.addEventListener('dragover', dropZoneOverHandler);
     //dropZone.addEventListener('dragleave', dropZoneLeaveHandler);
@@ -71,8 +76,63 @@ function dropZoneLeaveHandler(event) {
 
 function dropZoneDropHandler(event) {
     let draggedElement = document.querySelector('.dragged');
-    event.currentTarget.appendChild(draggedElement);
+    if (event.currentTarget.children.length === 0 || event.currentTarget.classList.contains('mixed-cards')) {
+        event.currentTarget.appendChild(draggedElement);
+    }
 }
+
+
+function clickRotate(event) {
+    event.preventDefault();
+    let rotateData = parseInt(event.currentTarget.getAttribute('data-rotate'));
+    if (rotateData === 0) {
+        event.currentTarget.style.transform = 'rotate(90deg)';
+        event.currentTarget.setAttribute('data-rotate', '90');
+    } else if (rotateData === 90) {
+        event.currentTarget.style.transform = 'rotate(180deg)';
+        event.currentTarget.setAttribute('data-rotate', '180');
+    } else if (rotateData === 180) {
+        event.currentTarget.style.transform = 'rotate(270deg)';
+        event.currentTarget.setAttribute('data-rotate', '270');
+    } else {
+        event.currentTarget.style.transform = 'rotate(0deg)';
+        event.currentTarget.setAttribute('data-rotate', '0');
+    }
+}
+
+
+function timeLeft(){
+    const timeLeftDisplay = document.querySelector('#time-left')
+    const startBtn = document.querySelector('#start-button')
+    let timeLeft = 10
+
+    function countDown() {
+        setInterval(function () {
+            if(timeLeft <= 0){
+                clearInterval(timeLeft = 0)
+            }
+            timeLeftDisplay.innerHTML = timeLeft
+            timeLeft -=1
+        }, 1000)
+        startBtn.style.visibility = 'hidden'
+    }
+    startBtn.addEventListener('click', countDown)
+    startBtn.addEventListener('click', shuffleCards)
+    startBtn.addEventListener('click', initDragAndDrop)
+
+
+}
+
+function fullPicture() {
+  let picture = document.getElementById("picture");
+  if (picture.style.display === "none") {
+    picture.style.display = "block";
+  } else {
+    picture.style.display = "none";
+  }
+}
+
+
 
 
 /*function toggleMusic() {
