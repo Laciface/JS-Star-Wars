@@ -1,11 +1,10 @@
 initGame();
-switchVisibility();
-switchToRules();
-switchToCredits();
 
 function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
     timeLeft();
+    switchVisibility();
+    switchToCredits();
 }
 
 function shuffleCards() {
@@ -25,6 +24,8 @@ function initDragAndDrop() {
     let dropZones = document.querySelectorAll('.card-slot, .mixed-cards');
     initDraggables(draggables);
     initDropZones(dropZones);
+    document.querySelector('body').style.overflow = 'visible';
+    document.getElementById('picture').style.visibility = 'hidden';
 }
 
 function initDraggables(draggables) {
@@ -134,10 +135,10 @@ function timeLeft() {
 
 function fullPicture() {
     let picture = document.getElementById("picture");
-    if (picture.style.display === "none") {
-        picture.style.display = "block";
+    if (picture.style.visibility === "hidden") {
+        picture.style.visibility = "visible";
     } else {
-        picture.style.display = "none";
+        picture.style.visibility = "hidden";
     }
 }
 
@@ -172,19 +173,6 @@ function initShowAndHide(game) {
     }
 }
 
-
-function switchToRules() {
-    let rulesButton = document.querySelector('#rules-button');
-    rulesButton.addEventListener('click', showAndHideRules);
-}
-
-function showAndHideRules() {
-    let rules = document.querySelector('.rules');
-    let menu = document.querySelector('.menu');
-    menu.style.visibility = 'hidden';
-    rules.style.visibility = 'visible';
-}
-
 function switchToCredits() {
     let creditsButton = document.querySelector('#credits-button');
     creditsButton.addEventListener('click', showAndHideCredits);
@@ -193,8 +181,13 @@ function switchToCredits() {
 function showAndHideCredits() {
     let credits = document.querySelector('.credits')
     let menu = document.querySelector('.menu');
+    let backBtn = document.querySelector('.backbutton');
     menu.style.visibility = 'hidden';
     credits.style.visibility = 'visible';
+    creditsSong();
+    backBtn.addEventListener('click', function () {
+        window.location.reload();
+    })
 }
 
 function checkLose(timeLeft) {
@@ -207,7 +200,6 @@ function checkWin() {
     let count = 0
     let cardSlots = document.querySelectorAll('.card-slot');
     for (cardSlot of cardSlots) {
-            console.log(cardSlot.firstElementChild);
         if (cardSlot.children.length === 1) {
             if (cardSlot.getAttribute('data-pos') === cardSlot.firstElementChild.getAttribute('data-pos') &&
                 cardSlot.firstElementChild.getAttribute('data-rotate') === '0') {
