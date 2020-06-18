@@ -143,7 +143,7 @@ function fullPicture() {
 }
 
 
-const backgroundMusic = new Audio( "/static/starwars.mp3" );
+const backgroundMusic = new Audio( "/static/grofo.mp3" );
 
 function play() {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();

@@ -108,9 +108,16 @@ img {
 
 }
 
+#picture {
+    display: compact;
+}
 
 
-.btn {
+.button-menu {
+    margin: 4%;
+}
+
+.btn, .ingame-button {
 
     margin: 2%;
     display: block;

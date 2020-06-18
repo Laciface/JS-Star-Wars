@@ -38,7 +38,7 @@
     </section>
 </div>
 <div class="game">
-    <button id="reset-button">Reset Game</button>
+
     <div id="images" class="mixed-cards">
         <div id="drag1" class="card" data-pos="1"><img src="/images/1.png"/></div>
         <div id="drag2" class="card" data-pos="2"><img src="/images/2.png"/></div>
@@ -49,6 +49,18 @@
         <div id="drag7" class="card" data-pos="7"><img src="/images/7.png"/></div>
         <div id="drag8" class="card" data-pos="8"><img src="/images/8.png"/></div>
         <div id="drag9" class="card" data-pos="9"><img src="/images/9.png"/></div>
+    </div>
+
+<div style="display: flex">
+    <div class="button-menu">
+    <button id="reset-button" class="ingame-button">Back to menu</button><br><br>
+    <div class="sound">
+        <input id='music' type="button" class="ingame-button" value="Toggle Music"><br><br>
+    </div>
+    <button id="picture-button" class="ingame-button">Full Picture</button><br><br>
+    </div>
+    <div id="picture" class="card">
+        <img src="https://media.discordapp.net/attachments/677502181120671744/722359768668438548/babyyoda.jpg?width=1173&height=660"/>
     </div>
 
     <div id="grid" class="dropzone">
@@ -62,16 +74,7 @@
         <div id="div8" class="card-slot" data-pos="2"></div>
         <div id="div9" class="card-slot" data-pos="1"></div>
     </div>
-
-    <button id="picture-button">Full Picture</button>
-
-    <div id="picture" class="card">
-        <img src="https://media.discordapp.net/attachments/677502181120671744/722359768668438548/babyyoda.jpg?width=1173&height=660"/>
-    </div>
-
-    <div class="sound">
-        <input id='music' type="button" value="Toggle Music">
-    </div>
+</div>
 </div>
 </body>
 </div>
