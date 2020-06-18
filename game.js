@@ -163,7 +163,7 @@ function showAndHideGame() {
     let game = document.querySelectorAll('.game');
     let menu = document.querySelector('.menu');
     initShowAndHide(game);
-    menu.style.visibility = 'hidden';
+    menu.style.display = 'none';
 }
 
 function initShowAndHide(game) {

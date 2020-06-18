@@ -44,8 +44,16 @@ img {
   display: inline-block;
 }
 
-#start-button{
+#credits-button{
+  margin: auto;
+}
 
+#rules-button{
+  margin: auto;
+}
+
+#start-button{
+  margin: auto;
 }
 .game {
   visibility: hidden;
@@ -54,6 +62,8 @@ img {
 
 .menu {
   visibility: visible;
+  margin-top: 18%;
+
 }
 
 .rules {
@@ -94,4 +104,59 @@ img {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+
+}
+
+
+
+.btn {
+
+    margin: 2%;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 55px;
+    border: 1px solid #b39e56;
+    border-radius: 23px;
+    background: #ffe27b;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffe27b), to(#b39e56));
+    background: -moz-linear-gradient(top, #ffe27b, #b39e56);
+    background: linear-gradient(to bottom, #ffe27b, #b39e56);
+    -webkit-box-shadow: #ffff94 0px 0px 40px 0px;
+    -moz-box-shadow: #ffff94 0px 0px 40px 0px;
+    box-shadow: #ffff94 0px 0px 40px 0px;
+    text-shadow: #ffffa0 1px 1px 1px;
+    font: normal normal bold 20px arial;
+    color: #111111;
+    text-decoration: none;
+
+}
+.button:hover,
+.button:focus {
+
+    background: #ffff94;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffff94), to(#d7be67));
+    background: -moz-linear-gradient(top, #ffff94, #d7be67);
+    background: linear-gradient(to bottom, #ffff94, #d7be67);
+    color: #111111;
+    text-decoration: none;
+}
+.button:active {
+    background: #b39e56;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b39e56), to(#b39e56));
+    background: -moz-linear-gradient(top, #b39e56, #b39e56);
+    background: linear-gradient(to bottom, #b39e56, #b39e56);
+}
+.button:after{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 -4px -6px 4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADzklEQVRIibWVW2hcVRSGv33OnksySaZnMmmulsTGRJIQa4SqtZRqBY2KlNSJQlUMXqBFm4o+CCL4oIjVh1LQh4KmCApNtQ++VUMaMRgkEttSExsbk5ZQx1wmycTJTGbOnO3DZJIzk0lQsQsW/Ju11+1fZ+0jAI2bKOng1gZ26//A2R1oG2HdaG/QjfaGze5kYx0QgLIZ7GcFoBsBKT1Nx+6vLzhV5dMPTcbqC4W74byKDVtZvutwOqNm0+yzJgRldaWuI4d2CvlSiyn9Nb6jQoiy7Hu51D6DbP6sVPXt+6vL3YNOKeT8YpTIskI6NFm6VQ7qRmB/Dv8MnM1/RiLdCOxpvc97uufjirIthuJS0OLSFFQ5w3z1tiq7c6f3tG4E9rCJ5KQkrS6H1vne4WKJFeH464VMFziZkibHX4xT5EryWke+1J2ycwN6ATRpq9ye1ALwG7J26EqEexoV3gKN5x/VScQURR5B3FRcG13E5fPUxv9c9ddssbRcFGUkEwL6xxy0dob45scY28pdVPrh/M/Q9pbgyg0vaGIzhkh3sOE21zf76PpiksPHwuxqdqCSgoFfUrZdOwr58vtItn8G3pSiVVHQVCv54WICUDRtd3B5LJGr639HEQoerl6krbWIy+NJ0ns0PGHyQlsJLfXr3Nc9FdmtZWgwlOg98fk0Rw8WkVdalBoKgvJiB68+VcCJT64Tmwr35PJNq8hByepZFj+hKUt7vKLc/dHUfLIiGU1R5HZp+A3X5GQw+gqIr8257g0pkmSJNAISIVqUUg9gib8Q6lMr6ep9bF/d04NDYwDcdUcNA4OjfUpEe4TiZd0IFAghelFqyJw7E7dTZO9AA5C+wLP7bvd0Pbhd553eSMy/RVrX/ojn5+U52bu7EaUUff3DxKJxPLcYS8uhiPbMwVvdfaMJxr+72mGGznxmL3g1gTQC24Qm3q0scbY1Fev5yXiMktu8HNhXwpNv/IaZVKBWHlohkDqc/KCZsz1TLI0ECZZVMj4RiUWD82eVxZvJue7rgLWWwNf+3PtHKrvubtS58OsCO+okVVt1in1+ZhYcnBtYYOLGMgDVFS4eutdLiddkJjTN5FSSC6MmlU2VfDvi4OSHFzvMUPcpWFs0UAqsMFX+PBofKWVpKULCTDA7O4PDITmw142ueQBIWhbL8RlmZhMoATUVbhprPcyHZ/g9Fk3FSlO+Rpbgp5H08kQzJ6/ATExjmSm7Jh1IhztF8Or9MEAqhlg1ZFBUC2o3Stj+aWoFCxtemRwiVWkuDP1mqPtqzq/oZsg//un/F/w3Hxp5DY8+A3gAAAAASUVORK5CYII=") no-repeat left center transparent;
+    background-size: 100% 100%;
 }
