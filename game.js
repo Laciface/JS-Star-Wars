@@ -24,7 +24,7 @@ function initDragAndDrop() {
     let dropZones = document.querySelectorAll('.card-slot, .mixed-cards');
     initDraggables(draggables);
     initDropZones(dropZones);
-    document.querySelector('body').style.overflow = 'visible';
+    document.querySelector('body').style.overflowY = 'visible';
     document.getElementById('picture').style.visibility = 'hidden';
 }
 
@@ -107,7 +107,7 @@ function timeLeft() {
     const resetBtn = document.getElementById('reset-button');
     const imageBtn = document.getElementById('picture-button');
     const musicBtn = document.getElementById('music');
-    let timeLeft = 10000;
+    let timeLeft = 1000;
 
     function countDown() {
         setInterval(function () {
@@ -143,7 +143,7 @@ function fullPicture() {
 }
 
 
-const backgroundMusic = new Audio( "/static/grofo.mp3" );
+const backgroundMusic = new Audio( "/static/starwars.mp3" );
 
 function play() {
     return backgroundMusic.paused ? backgroundMusic.play() : backgroundMusic.pause();

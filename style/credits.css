@@ -3,6 +3,7 @@ body {
   height: 100%;
   background: #000!important;
   overflow: hidden;
+  max-height: 600px;
 }
 
 .fade {
