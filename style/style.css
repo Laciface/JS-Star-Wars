@@ -1,6 +1,7 @@
 @import "credits.css";
 @import "backround.css";
 
+
 body {
   background:#6b6b69;
   color:white;
@@ -20,7 +21,7 @@ body {
   height:614px;
   background:darkgrey;
   border:5px solid black;
-  margin:auto;
+
 }
 
 #images {
@@ -109,9 +110,17 @@ img {
 }
 
 #picture {
-    display: compact;
+
 }
 
+.time{
+        font-family: arial;
+        font-size: 25px;
+        text-shadow: 4px 4px 4px #aaa;
+        color: yellow;
+        text-align: center;
+        margin-bottom: 2%;
+}
 
 .button-menu {
     margin: 4%;
