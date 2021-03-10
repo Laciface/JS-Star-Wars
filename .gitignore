@@ -1,0 +1,6 @@
+*.tmp
+temp/
+venv/
+node_modules/
+.idea/
+__pycache__/
